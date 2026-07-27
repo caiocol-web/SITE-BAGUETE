@@ -17,12 +17,12 @@
             <h1>Login de Usuário</h1>
             <div class="input-box">
                 <i class='bx bx-user'></i>
-                <input type="email" placeholder="Digite seu email">
+                <input type="text" id="login" placeholder="Digite seu Usuário">
             </div>
 
             <div class="input-box">
-                <i class='bx bx-lock-alt'></i>
-                <input type="password" placeholder="Digite sua senha">
+                <input type="password" id="senha" placeholder="Digite sua senha">
+                <i class='bx bx-show' id="btn-senha" onclick="mostrarsenha()"></i>
             </div>
 
             <div class="remember-forgot">
@@ -32,14 +32,48 @@
                 </label>
                 <a href="#">Esqueceu a senha?</a>
             </div>
-            <button type="submit" class="login">Entrar</button>
+            <input type="button" class="login" value="Entrar" onclick="logar()">
+
 
             <div class="register-link">
                 <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
             </div>
         </form>
-    </main>
 
+        <script>
+  function logar (){
+var login = document.getElementById('login').value;
+var senha = document.getElementById('senha').value;
+
+if (login == "admin" && senha == 123){
+
+location.href = "home.html";
+    }
+    else{
+        alert("Usuário ou senha incorretos");
+    }
+}
+        </script>
+    </main>
+<script>
+    function mostrarsenha() {
+    const input= document.getElementById('senha')
+    const icone = document.getElementById('btn-senha')
+    
+
+    if(input.type === 'password'){
+        input.type ="text"
+        icone.classList.remove("bx-show");
+        icone.classList.add("bx-hide");
+    }
+    else{
+        input.type = "password"
+        icone.classList.remove("bx-hide");
+        icone.classList.add("bx-show")
+    }
+
+}
+</script>
 </body>
 
 </html>

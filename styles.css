@@ -43,6 +43,12 @@ background-position: center;
     height: 40px;
 }
 
+#btn-senha {
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 9999;
+}
+
 .input-box input {
     position: absolute;
     width: 100%;
