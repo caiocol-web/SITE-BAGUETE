@@ -30,7 +30,7 @@
                     <input type="checkbox" id="Lembre-me">
                     Lembrar senha
                 </label>
-                <a href="#">Esqueceu a senha?</a>
+                <a href="#" onclick="trocarsenha()">Esqueceu a senha?</a>
             </div>
             <input type="button" class="login" value="Entrar" onclick="logar()">
 
@@ -41,18 +41,56 @@
         </form>
 
         <script>
-  function logar (){
-var login = document.getElementById('login').value;
-var senha = document.getElementById('senha').value;
 
-if (login == "admin" && senha == 123){
+function trocarsenha() {
 
-location.href = "home.html";
+    let novaSenha = prompt("Digite a nova senha:");
+
+    if (novaSenha != null && novaSenha != "") {
+        localStorage.setItem("senha", novaSenha);
+        alert("Senha alterada com sucesso!");
     }
-    else{
-        alert("Usuário ou senha incorretos");
+
+}
+
+
+
+window.onload = function () {
+    if (localStorage.getItem("lembrar") === "true") {
+        document.getElementById("login").value = localStorage.getItem("login");
+        document.getElementById("senha").value = localStorage.getItem("senha");
+        document.getElementById("Lembre-me").checked = true;
     }
 }
+
+  function logar () {
+var login = document.getElementById('login').value;
+var senha = document.getElementById('senha').value;
+const lembrar = document.getElementById("Lembre-me").checked;
+
+ if (lembrar) {
+        localStorage.setItem("lembrar", "true");
+        localStorage.setItem("login", login);
+    } else {
+        localStorage.removeItem("lembrar");
+        localStorage.removeItem("login");
+    }
+  
+
+let senhaSalva = localStorage.getItem("senha");
+
+if (senhaSalva == null) {
+    senhaSalva = "123";
+}
+
+if (login == "admin" && senha == senhaSalva) {
+    location.href = "home.html";
+} else {
+
+    alert("Usuário ou senha incorretos");
+}
+  }
+
         </script>
     </main>
 <script>
