@@ -128,3 +128,8 @@ margin-bottom: 15px;
 .register-link a:hover{
     text-decoration: underline;
 }
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
