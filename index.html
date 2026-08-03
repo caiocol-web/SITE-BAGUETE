@@ -61,7 +61,10 @@ window.onload = function () {
         document.getElementById("senha").value = localStorage.getItem("senha");
         document.getElementById("Lembre-me").checked = true;
     }
+
 }
+
+let senhaSalva = localStorage.getItem("senha");
 
   function logar () {
 var login = document.getElementById('login').value;
@@ -71,13 +74,14 @@ const lembrar = document.getElementById("Lembre-me").checked;
  if (lembrar) {
         localStorage.setItem("lembrar", "true");
         localStorage.setItem("login", login);
+            localStorage.setItem("senha", senha);
     } else {
         localStorage.removeItem("lembrar");
         localStorage.removeItem("login");
+            localStorage.setItem("senha", senhaSalva);
     }
   
 
-let senhaSalva = localStorage.getItem("senha");
 
 if (senhaSalva == null) {
     senhaSalva = "123";
