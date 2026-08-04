@@ -10,12 +10,133 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="cabeça">Vendas</div>
+    <header class="cabeçalho">
+        <h1 class="sla">Arte em<br>Baguetes</h1>
+    <div class="cabeça">Vendas</div>
+
+            <nav aria-label="Navegação principal">
+            <a href="index.html" class="btn-logout" aria-label="Sair da conta e ir para o Login">Sair</a>
+            <a href="home.html" title="Página Inicial">Home</a>
+            </nav>
     </header>
-    <div class="conteiner">
     <div class="imgfundo"></div>
-        <div class="texto">Produtos a venda:</div>
+        <div class="texto">Nossos Produtos</div>
+<div class="conteudo">
+        <section class="produtos">
+         
+    <div class="produto">
+        <img src="imgs/pao1.png" alt="Pão Francês">
+        <h3>Pão Francês</h3>
+        <p>Crocante e fresquinho.</p>
+        <span>R$ 1,20</span>
+        <button onclick="adicionar('Pao Francês',1.20)">Comprar</button>
+    </div>
+
+    <div class="produto">
+        <img src="imgs/pao3.png" alt="Baguete">
+        <h3>Baguete</h3>
+        <p>Tradicional francesa.</p>
+        <span>R$ 12,90</span>
+        <button onclick="adicionar('Baguete',12.90)">Comprar</button>
+    </div>
+
+    <div class="produto">
+        <img src="imgs/pao4.png" alt="Pão Integral">
+        <h3>Pão Integral</h3>
+        <p>Mais saudável.</p>
+        <span>R$ 10,50</span>
+        <button onclick="adicionar('Pao Integral',10.50)">Comprar</button>
+    </div>
+
+    <div class="produto">
+        <img src="imgs/pao6.png" alt="Pão Doce">
+        <h3>Pão Doce</h3>
+        <p>Macio e saboroso.</p>
+        <span>R$ 8,90</span>
+        <button onclick="adicionar('Pao doce', 8.90)">Comprar</button>
+    </div>
+
+    <div class="produto">
+        <img src="imgs/pao2.png" alt="Croissant">
+        <h3>Croissant</h3>
+        <p>Folhado com manteiga.</p>
+        <span>R$ 9,90</span>
+        <button onclick="adicionar('Folhado com manteiga',9.90)">Comprar</button>
+    </div>
+
+    <div class="produto">
+        <img src="imgs/pao5.png" alt="Sonho">
+        <h3>Sonho</h3>
+        <p>Recheado com creme.</p>
+        <span>R$ 7,90</span>
+        <button onclick="adicionar('Sonho Recheado', 7.90)">Comprar</button>
+    </div>
+</section>
+
+<div class="carrinho">
+    <h1>Carrinho</h1>
+
+    <div id="lista"></div>
+
+    <button onclick="removerUltimo()">
+    Remover Último Produto
+</button>
+    <h3 id="total">R$ 0,00</h3>
+
+    <button>Finalizar Compra</button>
+
+    
+</div>
+
+<script>
+
+    let carrinho = [];
+    let total = 0;
+
+function adicionar(nome, preco){
+
+    carrinho.push({
+        nome,
+        preco
+    });
+
+    total += preco;
+
+    atualizarCarrinho();
+}
+function atualizarCarrinho(){
+
+    let lista = document.getElementById("lista");
+
+
+    lista.innerHTML = "";
+
+    carrinho.forEach(produto => {
+        lista.innerHTML += `
+            <p>${produto.nome} - R$ ${produto.preco.toFixed(2)}</p>
+        `;
+    });
+
+    document.getElementById("total").innerHTML =
+        "R$ " + total.toFixed(2);
+}
+
+function removerUltimo(){
+
+    if(carrinho.length == 0){
+        alert("O carrinho está vazio.");
+        return;
+    }
+
+    let produto = carrinho.pop();
+
+    total -= produto.preco;
+
+    atualizarCarrinho();
+}
+
+
+</script>
     </div>
 </body>
 </html>
