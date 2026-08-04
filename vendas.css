@@ -1,0 +1,42 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+.cabeça {
+font-family: "Poppins", sans-serif;
+width: 100%;
+height: 100px;
+background-color: #85470e;
+color: #ffffff;
+text-align: center;
+font-size: 50px;
+position: relative;
+padding-top: 10px;
+}
+
+body{
+    margin: 0%;
+    padding: 0%;
+      position: relative;
+}
+
+.conteiner {
+width: 100%;
+height: 400px;
+display: flex;
+}
+
+.imgfundo{
+background-image: url(fundos.png);
+backdrop-filter: blur(10px)
+}
+
+.texto  {
+font-family: "Lora", sans-serif;
+position: absolute;
+text-align: center;
+margin-left:  80px;;
+margin-top: 150px;
+color: #ffffff;
+font-size: 75px;
+}
+
