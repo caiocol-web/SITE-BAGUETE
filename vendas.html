@@ -1,142 +1,336 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vendas</title>
-    <link rel="stylesheet" href="vendas.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header class="cabeçalho">
-        <h1 class="sla">Arte em<br>Baguetes</h1>
-    <div class="cabeça">Vendas</div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vendas</title>
+        <link rel="stylesheet" href="vendas.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="cabeçalho">
+            <h1 class="sla">Arte em<br>Baguetes</h1>
+        <div class="cabeça">Vendas</div>
 
-            <nav aria-label="Navegação principal">
-            <a href="index.html" class="btn-logout" aria-label="Sair da conta e ir para o Login">Sair</a>
-            <a href="home.html" title="Página Inicial">Home</a>
-            </nav>
-    </header>
-    <div class="imgfundo"></div>
-        <div class="texto">Nossos Produtos</div>
-<div class="conteudo">
-        <section class="produtos">
-         
-    <div class="produto">
-        <img src="imgs/pao1.png" alt="Pão Francês">
-        <h3>Pão Francês</h3>
-        <p>Crocante e fresquinho.</p>
-        <span>R$ 1,20</span>
-        <button onclick="adicionar('Pao Francês',1.20)">Comprar</button>
-    </div>
+                <nav aria-label="Navegação principal">
+                <a href="index.html" class="btn-logout" aria-label="Sair da conta e ir para o Login">Sair</a>
+                <a href="home.html" title="Página Inicial">Home</a>
+                </nav>
+        </header>
+        <div class="imgfundo"></div>
+            <div class="texto">Nossos Produtos</div>
+    <div class="conteudo">
+            <section class="produtos">
+            
+        <div class="produto">
+            <img src="imgs/pao1.png" alt="Pão Francês">
+            <h3>Pão Francês</h3>
+            <p>Crocante e fresquinho.</p>
+            <span>R$ 1,20</span>
+            <button onclick="adicionar('Pao Francês',1.20)">Comprar</button>
+        </div>
 
-    <div class="produto">
-        <img src="imgs/pao3.png" alt="Baguete">
-        <h3>Baguete</h3>
-        <p>Tradicional francesa.</p>
-        <span>R$ 12,90</span>
-        <button onclick="adicionar('Baguete',12.90)">Comprar</button>
-    </div>
+        <div class="produto">
+            <img src="imgs/pao3.png" alt="Baguete">
+            <h3>Baguete</h3>
+            <p>Tradicional francesa.</p>
+            <span>R$ 12,90</span>
+            <button onclick="adicionar('Baguete',12.90)">Comprar</button>
+        </div>
 
-    <div class="produto">
-        <img src="imgs/pao4.png" alt="Pão Integral">
-        <h3>Pão Integral</h3>
-        <p>Mais saudável.</p>
-        <span>R$ 10,50</span>
-        <button onclick="adicionar('Pao Integral',10.50)">Comprar</button>
-    </div>
+        <div class="produto">
+            <img src="imgs/pao4.png" alt="Pão Integral">
+            <h3>Pão Integral</h3>
+            <p>Mais saudável.</p>
+            <span>R$ 10,50</span>
+            <button onclick="adicionar('Pao Integral',10.50)">Comprar</button>
+        </div>
 
-    <div class="produto">
-        <img src="imgs/pao6.png" alt="Pão Doce">
-        <h3>Pão Doce</h3>
-        <p>Macio e saboroso.</p>
-        <span>R$ 8,90</span>
-        <button onclick="adicionar('Pao doce', 8.90)">Comprar</button>
-    </div>
+        <div class="produto">
+            <img src="imgs/pao6.png" alt="Pão Doce">
+            <h3>Pão Doce</h3>
+            <p>Macio e saboroso.</p>
+            <span>R$ 8,90</span>
+            <button onclick="adicionar('Pao doce', 8.90)">Comprar</button>
+        </div>
 
-    <div class="produto">
-        <img src="imgs/pao2.png" alt="Croissant">
-        <h3>Croissant</h3>
-        <p>Folhado com manteiga.</p>
-        <span>R$ 9,90</span>
-        <button onclick="adicionar('Folhado com manteiga',9.90)">Comprar</button>
-    </div>
+        <div class="produto">
+            <img src="imgs/pao2.png" alt="Croissant">
+            <h3>Croissant</h3>
+            <p>Folhado com manteiga.</p>
+            <span>R$ 9,90</span>
+            <button onclick="adicionar('Folhado com manteiga',9.90)">Comprar</button>
+        </div>
 
-    <div class="produto">
-        <img src="imgs/pao5.png" alt="Sonho">
-        <h3>Sonho</h3>
-        <p>Recheado com creme.</p>
-        <span>R$ 7,90</span>
-        <button onclick="adicionar('Sonho Recheado', 7.90)">Comprar</button>
-    </div>
-</section>
+        <div class="produto">
+            <img src="imgs/pao5.png" alt="Sonho">
+            <h3>Sonho</h3>
+            <p>Recheado com creme.</p>
+            <span>R$ 7,90</span>
+            <button onclick="adicionar('Sonho Recheado', 7.90)">Comprar</button>
+        </div>
+    </section>
 
-<div class="carrinho">
-    <h1>Carrinho</h1>
+    <div class="carrinho">
+        <h1>Carrinho</h1>
 
-    <div id="lista"></div>
+        <div id="lista"></div>
 
-    <button onclick="removerUltimo()">
-    Remover Último Produto
-</button>
-    <h3 id="total">R$ 0,00</h3>
+        <button onclick="removerUltimo()">
+        Remover Último Produto
+    </button>
 
-    <button>Finalizar Compra</button>
+        <h3 id="total">R$ 0,00</h3>
 
+        <button onclick="abrirPagamento()">Finalizar Compra</button>
     
+
+    <div id="pagamento" style="display:none;">
+
+        <h3>Forma de pagamento</h3>
+
+        <label>
+            <input type="radio" name="pagamento" value="pix">
+            PIX
+        </label>
+
+        <label>
+            <input type="radio" name="pagamento" value="cartao">
+            Cartão
+        </label>
+
+    <div id="pix" style="display:none; margin-top:15px;">
+        <h4>Pagamento via PIX</h4>
+
+         <p>Escaneie o QR Code:</p>
+
+    <div class="qrcode">
+        <img src="qrcode.png" alt="QR Code PIX">
+    </div>
+            <p>Chave PIX:</p>
+            
+        <strong>padaria@email.com</strong>
+        <button onclick="efetuarPagamento()">
+            Efetuar Pagamento
+        </button>
+    </div>
+
+    <div id="cartao" style="display:none; margin-top:15px;">
+
+        <h4>Pagamento com Cartão</h4>
+
+        <input type="text" placeholder="Número do cartão"><br><br>
+
+        <input type="text" placeholder="Nome do titular"><br><br>
+
+        <input type="text" placeholder="Validade"><br><br>
+
+        <input type="password" placeholder="CVV">
+
+        <button onclick="efetuarPagamento()">
+            Efetuar Pagamento
+        </button>
+
+    </div>
+
+    </div>
+        
+    </div>
+    <div id="notaFiscal">
+    
+    <div class="nota-conteudo">
+
+        <button class="fechar-nota" onclick="fecharNota()">✕</button>
+
+        <h2>ARTE EM BAGUETES</h2>
+        <h3>NOTA FISCAL</h3>
+
+        <hr>
+
+        <div id="itensNota"></div>
+
+        <hr>
+
+        <h3 id="totalNota"></h3>
+
+        <p id="formaNota"></p>
+
+        <p class="obrigado">Obrigado pela preferência!</p>
+
+        <button class="botao-fechar" onclick="fecharNota()">
+            Fechar
+        </button>
+
+    </div>
+
 </div>
 
-<script>
+    <script>
 
-    let carrinho = [];
-    let total = 0;
+        let carrinho = [];
+        let total = 0;
 
-function adicionar(nome, preco){
+    function adicionar(nome, preco){
 
-    carrinho.push({
-        nome,
-        preco
+        carrinho.push({
+            nome,
+            preco
+        });
+
+        total += preco;
+
+        atualizarCarrinho();
+    }
+
+    function abrirPagamento(){
+
+        if(carrinho.length == 0){
+            alert("Seu carrinho está vazio.");
+            return;
+        }
+
+        document.getElementById("pagamento").style.display = "block";
+
+    }
+
+    function atualizarCarrinho(){
+
+        let lista = document.getElementById("lista");
+
+
+        lista.innerHTML = "";
+
+        carrinho.forEach(produto => {
+            lista.innerHTML += `
+                <p>${produto.nome} - R$ ${produto.preco.toFixed(2)}</p>
+            `;
+        });
+
+        document.getElementById("total").innerHTML =
+            "R$ " + total.toFixed(2);
+    }
+
+    function removerUltimo(){
+
+        if(carrinho.length == 0){
+            alert("O carrinho está vazio.");
+            return;
+        }
+
+        let produto = carrinho.pop();
+
+        total -= produto.preco;
+
+        atualizarCarrinho();
+    }
+
+    const radios = document.querySelectorAll('input[name="pagamento"]');
+
+    radios.forEach(radio => {
+
+        radio.addEventListener("change", function(){
+
+            document.getElementById("pix").style.display = "none";
+            document.getElementById("cartao").style.display = "none";
+
+            if(this.value == "pix"){
+                document.getElementById("pix").style.display = "block";
+            }
+
+            if(this.value == "cartao"){
+                document.getElementById("cartao").style.display = "block";
+            }
+
+        });
+
     });
 
-    total += preco;
+    function efetuarPagamento(){
 
-    atualizarCarrinho();
-}
-function atualizarCarrinho(){
+    const pagamento = document.querySelector(
+        'input[name="pagamento"]:checked'
+    );
 
-    let lista = document.getElementById("lista");
-
-
-    lista.innerHTML = "";
-
-    carrinho.forEach(produto => {
-        lista.innerHTML += `
-            <p>${produto.nome} - R$ ${produto.preco.toFixed(2)}</p>
-        `;
-    });
-
-    document.getElementById("total").innerHTML =
-        "R$ " + total.toFixed(2);
-}
-
-function removerUltimo(){
-
-    if(carrinho.length == 0){
-        alert("O carrinho está vazio.");
+    if(!pagamento){
+        alert("Escolha uma forma de pagamento.");
         return;
     }
 
-    let produto = carrinho.pop();
+    let formaPagamento = "";
 
-    total -= produto.preco;
+    if(pagamento.value == "pix"){
+
+        formaPagamento = "PIX";
+
+        alert("Pedido realizado!\nEfetue o pagamento via PIX.");
+
+    }else{
+
+        formaPagamento = "Cartão";
+
+        alert("Pagamento com cartão realizado com sucesso!");
+
+    }
+
+
+    // Monta os produtos da nota
+    let itens = "";
+
+    carrinho.forEach(produto => {
+
+        itens += `
+            <p>
+                ${produto.nome} - R$ ${produto.preco.toFixed(2)}
+            </p>
+        `;
+
+    });
+
+
+    document.getElementById("itensNota").innerHTML = itens;
+
+
+    document.getElementById("totalNota").innerHTML =
+        "TOTAL: R$ " + total.toFixed(2);
+
+
+    document.getElementById("formaNota").innerHTML =
+        "Forma de pagamento: " + formaPagamento;
+
+
+    // MOSTRA A NOTA SOMENTE AGORA
+    document.getElementById("notaFiscal").style.display = "flex";
+
+
+    // Limpa o carrinho
+    carrinho = [];
+    total = 0;
 
     atualizarCarrinho();
+
+
+    document.getElementById("pagamento").style.display = "none";
+    document.getElementById("pix").style.display = "none";
+    document.getElementById("cartao").style.display = "none";
+
+
+    document.querySelectorAll(
+        'input[name="pagamento"]'
+    ).forEach(radio => {
+
+        radio.checked = false;
+
+    });
+}
+function fecharNota(){
+
+    document.getElementById("notaFiscal").style.display = "none";
+
 }
 
-
-</script>
-    </div>
-</body>
-</html>
+    </script>
+        </div>
+    </body>
+    </html>
