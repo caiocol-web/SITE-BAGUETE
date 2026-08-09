@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-image">
+            <img src="./imgs/undraw_person-search_wuzp.svg" alt="">
+        </div>
+        <div class="form">
+            <form action="#">
+                <div class="form-header">
+
+                    <div class="title">
+                        <h1>Cadastre-se</h1>
+                    </div>
+                </div>
+
+
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="firstname">Usuário</label>
+                        <input id="firstname" type="text" name="firstname" placeholder="Nome do usuário">
+                    </div>
+                    <div class="input-box">
+                        <label for="lastname">Ultimo nome</label>
+                        <input id="lastname" type="text" name="lastname" placeholder="Ultimo nome usuário">
+                    </div>
+                    <div class="input-box">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" name="email" placeholder="Email do Usuário">
+                    </div>
+                    <div class="input-box">
+                        <label for="number">Celular</label>
+                        <input id="number" type="number" name="number" placeholder="(xx) xxxx-xxxx">
+                    </div>
+                    <div class="input-box">
+                        <label for="password">Senha</label>
+                        <input id="password" type="password" name="password" placeholder="Senha do usuário">
+                    </div>
+                    <div class="input-box">
+                        <label for="confirmpassword">Confime sua Senha</label>
+                        <input id="confirmpassword" type="password" name="confirmpassword"
+                            placeholder="Confirme sua Senha">
+                    </div>
+                </div>
+
+                <div class="gender-group">
+                    <div class="gender-title">
+                        <h6>Gêneros:</h6>
+                    </div>
+                    <div class="gender-input">
+                        <input type="radio" id="female" name="gender">
+                        <label for="female">Feminino
+                        </label>
+                    </div>
+                    <div class="gender-input">
+                        <input type="radio" id="male" name="gender">
+                        <label for="male">Masculino</label>
+                    </div>
+                    <div class="gender-input">
+                        <input type="radio" id="another" name="gender">
+                        <label for="another">Outros</label>
+                    </div>
+                </div>
+                <div class="continue-button">
+                    <button type="button" onclick="cadastrar()">Continuar</button>
+                </div>
+            </form>
+
+            <script>
+function cadastrar() {
+
+    let usuario = document.getElementById("firstname").value;
+    let senha = document.getElementById("password").value;
+    let confirmarSenha = document.getElementById("confirmpassword").value;
+
+    if (usuario === "" || senha === "" || confirmarSenha === "") {
+        alert("Preencha todos os campos obrigatórios!");
+        return;
+    }
+
+    if (senha !== confirmarSenha) {
+        alert("As senhas não são iguais!");
+        return;
+    }
+
+    localStorage.setItem("usuarioCadastro", usuario);
+    localStorage.setItem("senhaCadastro", senha);
+
+    alert("Cadastro realizado com sucesso!");
+
+    window.location.href = "index.html";
+}
+</script>
+
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
