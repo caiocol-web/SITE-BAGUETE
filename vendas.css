@@ -53,7 +53,7 @@ nav a{
 
 .imgfundo {
   display: flex;
-  background-image: url(tex.png) ;
+  background-image: url(./imgs/tex.png) ;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
