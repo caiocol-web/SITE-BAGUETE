@@ -1,67 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="home.css">
-    <title> Home</title>
+
+    <title>Home - Arte em Baguetes</title>
+
     <link rel="icon" type="image/png" href="logo.png">
 </head>
 
 
 <body>
 
-
     <header>
-        <h1>Arte em <br> Baguetes</h1>
-        <img src="./imgs/logo-sem-fundo.png" alt="">
+
+        <h1>
+            Arte em <br> Baguetes
+        </h1>
+
+        <img src="./imgs/logo-sem-fundo.png" alt="Logo">
+
         <p>Baguete</p>
+
     </header>
 
-<form id="formPesquisa" class="pesquisa">
-    <input type="text" id="pesquisa" placeholder="Pesquisar">
-</form>
+
+    <form id="formPesquisa" class="pesquisa">
+
+        <input
+            type="text"
+            id="pesquisa"
+            placeholder="Pesquisar"
+        >
+    </form>
+
 
     <div class="grupo-entradas">
-        <div class="entrada" style="background-image: url(./imgs/pão-1.jpg);">
-            <a href="padaria.html" div class="btn-entrar">
-            <p>Receitas</p></a>
-        </div>
-        <div class="entrada" style="background-image: url(./imgs/pão-2.jpg);">
-            <a href="vendas.html" div class="btn-entrar">
-            <p>Vendas</p></a>
-        </div>
-        <div class="entrada" style="background-image: url(./imgs/cesta.jpg);">
-            <a href="" div class="btn-entrar">
-            <p>Histórico</p></a>
-        </div>
-        <div class="entrada" style="background-image: url(./imgs/pães-2.jpg);">
-            <a href="" div class="btn-entrar">
-            <p>Locais</p></a>
-        </div>
-        <div class="entrada" style="background-image: url(./imgs/pães.jpg);">
-            <a href="" div class="btn-entrar">
-            <p>Curiosidades</p></a>
-        </div>
+
+        <div class="entrada">
+
+            <a href="padaria.html" class="btn-entrar">
+            <img src="./imgs/pão-1.jpg" alt="Receitas">
+            <p>Receitas</p>
+        </a>
     </div>
 
-        <div class="centro" style="background-image: url(./imgs/img1.jpg);">
+    <div class="entrada">
+        <a href="vendas.html" class="btn-entrar">
+            <img src="./imgs/pão-2.jpg" alt="Vendas">
+            <p>Vendas</p>
+        </a>
+    </div>
+
+    <div class="entrada">
+        <a href="" class="btn-entrar">
+            <img src="./imgs/cesta.jpg" alt="Histórico">
+            <p>Histórico</p>
+        </a>
+    </div>
+
+    <div class="entrada">
+        <a href="" class="btn-entrar">
+            <img src="./imgs/pães-2.jpg" alt="Locais">
+            <p>Locais</p>
+        </a>
+    </div>
+
+    <div class="entrada" id="opcaoEstoque">
+
+        <a href="estoque.html" class="btn-entrar">
+            <img src="./imgs/67.jpg" alt="Estoque">
+            <p>Estoque</p>
+        </a>
+
+
         </div>
-    
+
+
+    </div>
+
+
+    <div
+        class="centro"
+        style="background-image: url(./imgs/img1.jpg);"
+    >
+
+    </div>
+
+
     <script>
-        const form = document.pesquisa;
-const pesquisa = document.getElementById("pesquisa");
 
-form.addEventListener("submit", function(event) {
-    event.preventDefault();
+        const tipoUsuario = localStorage.getItem("tipoUsuario");
 
-    console.log("Pesquisando:", pesquisa.value);
+        const opcaoEstoque =
+            document.getElementById("opcaoEstoque");
 
-    pesquisa.value = "";
-});
+        if (tipoUsuario !== "admin") {
+
+            opcaoEstoque.style.display = "none";
+
+        }
+
+        const form =
+            document.getElementById("formPesquisa");
+
+        const pesquisa =
+            document.getElementById("pesquisa");
+
+
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            console.log("Pesquisando:", pesquisa.value);
+
+            pesquisa.value = "";
+
+        });
+
     </script>
+
 </body>
 
 </html>

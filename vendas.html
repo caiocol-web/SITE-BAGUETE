@@ -330,6 +330,48 @@ function fecharNota(){
 
 }
 
+
+function verificarEstoque(produto, quantidade) {
+
+    let estoque = JSON.parse(
+        localStorage.getItem("estoque")
+    ) || {};
+
+    if (estoque[produto] === undefined) {
+        alert("Produto não encontrado no estoque!");
+        return false;
+    }
+
+    if (estoque[produto] < quantidade) {
+        alert(
+            "Estoque insuficiente!\n\n" +
+            "Disponível: " + estoque[produto] +
+            "\nSolicitado: " + quantidade
+        );
+
+        return false;
+    }
+
+    return true;
+}
+
+function retirarDoEstoque(produto, quantidade) {
+
+    let estoque = JSON.parse(
+        localStorage.getItem("estoque")
+    ) || {};
+
+    estoque[produto] -= quantidade;
+
+    if (estoque[produto] < 0) {
+        estoque[produto] = 0;
+    }
+
+    localStorage.setItem(
+        "estoque",
+        JSON.stringify(estoque)
+    );
+}
     </script>
         </div>
     </body>

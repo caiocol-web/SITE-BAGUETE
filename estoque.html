@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="estoque.css">
+
+    <title>Estoque - Arte em Baguetes</title>
+</head>
+
+<body>
+
+    <header class="cabeçalho">
+
+        <p class="sla">
+            Arte em<br>
+            Baguetes
+        </p>
+
+        <h1 class="cabeça">
+            Estoque
+        </h1>
+
+        <nav>
+            <a href="home.html">Início</a>
+            <a href="vendas.html">Vendas</a>
+        </nav>
+
+    </header>
+
+    <div class="imgfundo"></div>
+
+    <h1 class="texto">
+        Controle de Estoque
+    </h1>
+
+    <div class="produtos">
+
+
+        <div class="produto">
+
+            <img src="./imgs/pao1.png" alt="Pão Francês">
+
+            <h3>Pão Francês</h3>
+
+            <p>
+                Quantidade disponível:
+            </p>
+
+            <span id="paoFrances">
+                0
+            </span>
+
+            <div class="botoes">
+
+                <button
+                    class="menos"
+                    onclick="alterarEstoque('paoFrances', -1)"
+                >
+                    −
+                </button>
+
+                <button
+                    onclick="alterarEstoque('paoFrances', 1)"
+                >
+                    +
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="produto">
+
+            <img src="./imgs/pao2.png" alt="Croissant">
+
+            <h3>Croissant</h3>
+
+            <p>
+                Quantidade disponível:
+            </p>
+
+            <span id="croissant">
+                0
+            </span>
+
+            <div class="botoes">
+
+                <button
+                    class="menos"
+                    onclick="alterarEstoque('croissant', -1)"
+                >
+                    −
+                </button>
+
+                <button
+                    onclick="alterarEstoque('croissant', 1)"
+                >
+                    +
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="produto">
+
+            <img src="./imgs/pao3.png" alt="Baguete Artesanal">
+
+            <h3>Baguete Artesanal</h3>
+
+            <p>
+                Quantidade disponível:
+            </p>
+
+            <span id="baguete">
+                0
+            </span>
+
+            <div class="botoes">
+
+                <button
+                    class="menos"
+                    onclick="alterarEstoque('baguete', -1)"
+                >
+                    −
+                </button>
+
+                <button
+                    onclick="alterarEstoque('baguete', 1)"
+                >
+                    +
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="produto">
+
+            <img src="./imgs/pao4.png" alt="Pão Integral">
+
+            <h3>Pão Integral</h3>
+
+            <p>
+                Quantidade disponível:
+            </p>
+
+            <span id="paoIntegral">
+                0
+            </span>
+
+            <div class="botoes">
+
+                <button
+                    class="menos"
+                    onclick="alterarEstoque('paoIntegral', -1)"
+                >
+                    −
+                </button>
+
+                <button
+                    onclick="alterarEstoque('paoIntegral', 1)"
+                >
+                    +
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="produto">
+
+            <img src="./imgs/pao5.png" alt="Sonho Recheado">
+
+            <h3>Sonho Recheado</h3>
+
+            <p>
+                Quantidade disponível:
+            </p>
+
+            <span id="sonho">
+                0
+            </span>
+
+            <div class="botoes">
+
+                <button
+                    class="menos"
+                    onclick="alterarEstoque('sonho', -1)"
+                >
+                    −
+                </button>
+
+                <button
+                    onclick="alterarEstoque('sonho', 1)"
+                >
+                    +
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="produto">
+
+            <img src="./imgs/pao6.png" alt="Pão Doce">
+
+            <h3>Pão Doce</h3>
+
+            <p>
+                Quantidade disponível:
+            </p>
+
+            <span id="paoDoce">
+                0
+            </span>
+
+            <div class="botoes">
+
+                <button
+                    class="menos"
+                    onclick="alterarEstoque('paoDoce', -1)"
+                >
+                    −
+                </button>
+
+                <button
+                    onclick="alterarEstoque('paoDoce', 1)"
+                >
+                    +
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+        if (localStorage.getItem("tipoUsuario") !== "admin") {
+
+            alert("Você não tem permissão para acessar o estoque.");
+
+            window.location.href = "home.html";
+
+        }
+
+
+        let estoque = JSON.parse(localStorage.getItem("estoque")) || {
+
+    paoFrances: 20,
+    croissant: 15,
+    baguete: 10,
+    paoIntegral: 12,
+    sonho: 10,
+    paoDoce: 15
+
+};
+
+function atualizarTela() {
+
+    document.getElementById("paoFrances").textContent = estoque.paoFrances;
+    document.getElementById("croissant").textContent = estoque.croissant;
+    document.getElementById("baguete").textContent = estoque.baguete;
+    document.getElementById("paoIntegral").textContent = estoque.paoIntegral;
+    document.getElementById("sonho").textContent = estoque.sonho;
+    document.getElementById("paoDoce").textContent = estoque.paoDoce;
+
+}
+
+function alterarEstoque(produto, quantidade) {
+
+    if (estoque[produto] + quantidade < 0) {
+        alert("O estoque não pode ficar negativo!");
+        return;
+    }
+
+    estoque[produto] += quantidade;
+
+    localStorage.setItem(
+        "estoque",
+        JSON.stringify(estoque)
+    );
+
+    atualizarTela();
+}
+atualizarTela();
+
+    </script>
+
+</body>
+
+</html>
