@@ -5,20 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Fascinante Origem do Pão - História e Cultura</title>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS (Play CDN) -->
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        headerBg: '#8d4a27',      /* Cor exata extraída da sua imagem */
-                        headerHover: '#a35730',   /* Tom um pouco mais claro para o hover */
+                        headerBg: '#8d4a27',
+                        headerHover: '#a35730',
                         wheat: {
                             50: '#faf7f2',
                             100: '#f4ede1',
@@ -45,56 +43,47 @@
     </script>
     
     <style>
-        /* Ajustes customizados e estados de foco */
         .bg-grid-pattern {
-            background-image: radial-gradient(#b48a58 0.75px, transparent 0.75px);
+            background-image: radial-gradient(#57320f 0.75px, transparent 0.75px);
             background-size: 16px 16px;
         }
     </style>
 </head>
 <body class="bg-cream text-earth font-sans antialiased selection:bg-wheat-300 selection:text-earth">
 
-    <!-- Header / Navegação Fixa com a cor personalizada -->
     <header class="fixed top-0 left-0 w-full bg-headerBg text-white border-b border-headerHover/50 z-50 transition-all duration-300 shadow-md" id="main-header">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
-            
-            <!-- Logo / Título -->
-            <a href="#" class="flex items-center gap-2 sm:gap-3 group shrink-0">
-                <span class="text-2xl">🍞</span>
-                <span class="font-serif font-bold text-lg sm:text-2xl tracking-tight text-white group-hover:text-wheat-200 transition-colors">
-                    Origem do Pão
-                </span>
-            </a>
+        <div class="w-full px-8 lg:px-12 h-20 grid grid-cols-3 items-center">
 
-            <!-- Menu Desktop -->
-            <nav class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-white/90 mr-auto ml-6">
-                <a href="#introducao" class="hover:text-wheat-200 transition-colors">Introdução</a>
-                <a href="#pre-historia" class="hover:text-wheat-200 transition-colors">Pré-História</a>
-                <a href="#antigo-egito" class="hover:text-wheat-200 transition-colors">Antigo Egito</a>
-                <a href="#antiguidade-media" class="hover:text-wheat-200 transition-colors">Grécia, Roma & Idade Média</a>
-                <a href="#era-moderna" class="hover:text-wheat-200 transition-colors">Era Moderna</a>
-            </nav>
 
-            <!-- Ações Direita (Home e Sair) -->
-            <div class="hidden md:flex items-center space-x-3 shrink-0">
-                <!-- Home -->
-                <a href="../home.html" class="flex items-center gap-1.5 px-4 py-2 text-sm font-bold text-white bg-headerHover/60 hover:bg-headerHover rounded-lg transition-all border border-white/20">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 00-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                    </svg>
-                    Home
-                </a>
+    <a href="#" class="flex items-center gap-2 sm:gap-3 group justify-self-start">
+        <span class="text-2xl">🍞</span>
+        <span class="font-serif font-bold text-lg sm:text-2xl tracking-tight text-white group-hover:text-wheat-200 transition-colors">
+            Origem do Pão
+        </span>
+    </a>
 
-                <!-- Sair -->
-                <a href="../index.html" class="flex items-center gap-1.5 px-4 py-2 text-sm font-bold text-earth bg-wheat-100 hover:bg-white rounded-lg shadow-sm transition-all">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
-                    </svg>
-                    Sair
-                </a>
-            </div>
 
-            <!-- Botão Menu Mobile -->
+    <nav class="hidden lg:flex items-center justify-center gap-4 text-sm font-semibold text-white/90">
+        <a href="#introducao" class="hover:text-wheat-200 transition-colors">Introdução</a>
+        <a href="#pre-historia" class="hover:text-wheat-200 transition-colors">Pré-História</a>
+        <a href="#antigo-egito" class="hover:text-wheat-200 transition-colors">Antigo Egito</a>
+        <a href="#antiguidade-media" class="hover:text-wheat-200 transition-colors">Grécia, Roma & Idade Média</a>
+        <a href="#era-moderna" class="hover:text-wheat-200 transition-colors">Era Moderna</a>
+    </nav>
+
+
+    <div class="hidden md:flex items-center space-x-3 justify-self-end">
+        <a href="home.html" class="flex items-center gap-1.5 px-4 py-2 text-sm font-bold text-white bg-headerHover/60 hover:bg-headerHover rounded-lg transition-all border border-white/20">
+            Home
+        </a>
+
+        <a href="index.html" class="flex items-center gap-1.5 px-4 py-2 text-sm font-bold text-earth bg-wheat-100 hover:bg-white rounded-lg shadow-sm transition-all">
+            Sair
+        </a>
+    </div>
+
+</div>
+
             <button id="menu-btn" class="lg:hidden p-2 rounded-lg text-white hover:bg-headerHover focus:outline-none" aria-label="Abrir Menu">
                 <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -102,7 +91,6 @@
             </button>
         </div>
 
-        <!-- Menu Mobile Dropdown -->
         <div id="mobile-menu" class="hidden lg:hidden bg-headerBg border-b border-headerHover px-4 pt-2 pb-6 space-y-3">
             <a href="#introducao" class="mobile-link block py-2 text-base font-medium text-white hover:text-wheat-200">Introdução</a>
             <a href="#pre-historia" class="mobile-link block py-2 text-base font-medium text-white hover:text-wheat-200">Pré-História</a>
@@ -127,7 +115,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-wheat-100/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-12">
@@ -142,17 +129,14 @@
                 </p>
             </div>
 
-            <!-- Imagem Hero (Primeira Foto) -->
             <div class="max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-lg border border-wheat-200">
-                <img src="../SITE-BAGUETE/primeira-foto.png" alt="Origem do Pão" class="w-full h-auto object-cover max-h-[480px]">
+                <img src="./imgs/pau.jpg" alt="Origem do Pão" class="w-full h-auto object-cover max-h-[480px]">
             </div>
         </div>
     </section>
 
-    <!-- Conteúdo Principal -->
     <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
 
-        <!-- Seção 1: Introdução -->
         <section id="introducao" class="scroll-mt-28">
             <div class="grid md:grid-cols-12 gap-8 items-center">
                 <div class="md:col-span-6 space-y-4">
@@ -163,9 +147,8 @@
                     </p>
                 </div>
                 <div class="md:col-span-6">
-                    <!-- Imagem Seção 1 (Segunda Foto) -->
                     <div class="overflow-hidden rounded-xl shadow-md border border-wheat-200">
-                        <img src="../SITE-BAGUETE/segunda-foto.jpg" alt="Produção de pão artesanal" class="w-full h-64 md:h-80 object-cover">
+                        <img src="./imgs/pau4.jpg" alt="Produção de pão artesanal" class="w-full h-64 md:h-80 object-cover">
                     </div>
                 </div>
             </div>
@@ -173,7 +156,6 @@
 
         <hr class="border-wheat-200">
 
-        <!-- Seção 2: A Pré-História -->
         <section id="pre-historia" class="scroll-mt-28">
             <div class="space-y-8">
                 <div class="max-w-2xl">
@@ -197,30 +179,23 @@
                     </div>
                 </div>
 
-                <!-- Imagem Seção 2 (Terceira Foto) -->
                 <div class="overflow-hidden rounded-xl shadow-md border border-wheat-200">
-                    <img src="../SITE-BAGUETE/imgs/terceira-foto" alt="Pães Primitivos e Ázimos" class="w-full h-64 md:h-96 object-cover">
+                    <img src="./imgs/pau3.jpg" alt="Pães Primitivos e Ázimos" class="w-full h-64 md:h-96 object-cover">
                 </div>
             </div>
         </section>
 
         <hr class="border-wheat-200">
 
-        <!-- Seção 3: Antigo Egito -->
         <section id="antigo-egito" class="scroll-mt-28">
             <div class="grid md:grid-cols-12 gap-8 items-center">
                 <div class="md:col-span-6 order-2 md:order-1">
-                    <!-- Placeholder Imagem 3 (Ainda sem caminho definido) -->
                     <div class="rounded-xl border-2 border-dashed border-wheat-400 bg-wheat-50/80 p-6 shadow-sm transition-all hover:border-amberCustom h-full flex flex-col justify-center">
-                        <div class="text-center space-y-2">
-                            <span class="text-xs uppercase tracking-wider text-wheat-700 font-bold block">[ INSERIR IMAGEM AQUI ]</span>
-                            <p class="text-sm text-earth font-medium">
-                                <strong>Ilustração ou foto com temática egípcia antiga relacionada à colheita de trigo ou fabricação de pão.</strong>
-                            </p>
-                            <p class="text-xs text-earth/60 font-mono bg-wheat-200/40 px-2 py-1 rounded inline-block">
-                                Onde buscar: Pixabay / Unsplash &bull; Termo: "ancient egyptian bread making history"
-                            </p>
-                        </div>
+                        <div class="rounded-xl overflow-hidden shadow-md border border-wheat-200">
+    <img src="./imgs/pau5.jpg"
+         alt="Antigo Egito e fabricação de pão"
+         class="w-full h-64 md:h-80 object-cover">
+</div>
                     </div>
                 </div>
 
@@ -250,7 +225,6 @@
 
         <hr class="border-wheat-200">
 
-        <!-- Seção 4: Antiguidade Clássica à Idade Média -->
         <section id="antiguidade-media" class="scroll-mt-28">
             <div class="space-y-8">
                 <div class="max-w-2xl">
@@ -274,24 +248,18 @@
                     </div>
                 </div>
 
-                <!-- Placeholder Imagem 4 -->
                 <div class="rounded-xl border-2 border-dashed border-wheat-400 bg-wheat-50/80 p-6 shadow-sm transition-all hover:border-amberCustom">
-                    <div class="text-center space-y-2">
-                        <span class="text-xs uppercase tracking-wider text-wheat-700 font-bold block">[ INSERIR IMAGEM AQUI ]</span>
-                        <p class="text-sm text-earth font-medium">
-                            <strong>Padeiro medieval ou forno de pedra antigo em um ambiente rústico de pedra.</strong>
-                        </p>
-                        <p class="text-xs text-earth/60 font-mono bg-wheat-200/40 px-2 py-1 rounded inline-block">
-                            Onde buscar: Unsplash &bull; Termo: "medieval bakery oven stone"
-                        </p>
-                    </div>
+                   <div class="rounded-xl overflow-hidden shadow-md border border-wheat-200">
+    <img src="./imgs/pau6.jpg"
+         alt="Antigo Egito e fabricação de pão"
+        class="w-full h-[500px] object-cover object-bottom">
+</div>
                 </div>
             </div>
         </section>
 
         <hr class="border-wheat-200">
 
-        <!-- Seção 5: Era Moderna e Industrialização -->
         <section id="era-moderna" class="scroll-mt-28">
             <div class="grid md:grid-cols-12 gap-8 items-center">
                 <div class="md:col-span-6 space-y-4">
@@ -315,17 +283,13 @@
                 </div>
 
                 <div class="md:col-span-6">
-                    <!-- Placeholder Imagem 5 -->
                     <div class="rounded-xl border-2 border-dashed border-wheat-400 bg-wheat-50/80 p-6 shadow-sm transition-all hover:border-amberCustom h-full flex flex-col justify-center">
                         <div class="text-center space-y-2">
-                            <span class="text-xs uppercase tracking-wider text-wheat-700 font-bold block">[ INSERIR IMAGEM AQUI ]</span>
-                            <p class="text-sm text-earth font-medium">
-                                <strong>Baguetes francesas frescas saindo de um cesto em uma padaria moderna ou rústica e elegante.</strong>
-                            </p>
-                            <p class="text-xs text-earth/60 font-mono bg-wheat-200/40 px-2 py-1 rounded inline-block">
-                                Onde buscar: Unsplash &bull; Termo: "french baguettes basket bakery"
-                            </p>
-                        </div>
+                            <div class="rounded-xl overflow-hidden shadow-md border border-wheat-200">
+    <img src="./imgs/pau7.jpg"
+         alt="Antigo Egito e fabricação de pão"
+         class="w-full h-64 md:h-80 object-cover">
+</div>
                     </div>
                 </div>
             </div>
@@ -333,30 +297,23 @@
 
     </main>
 
-    <!-- Rodapé -->
     <footer class="bg-earth text-wheat-100 py-12 border-t border-wheat-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-            <div class="text-3xl">🌾</div>
-            <h3 class="font-serif text-2xl font-bold text-wheat-200">A Fascinante Origem do Pão</h3>
-            <p class="text-wheat-300 text-sm max-w-md mx-auto">
-                Uma homenagem ao alimento simples que uniu povos, construiu cidades e continua nutrindo a humanidade todos os dias com amor e tradição.
-            </p>
             <div class="pt-6 border-t border-wheat-800/60 text-xs text-wheat-400">
                 &copy; 2026 - Conteúdo Educativo Institucional. Todos os direitos reservados.
             </div>
         </div>
     </footer>
 
-    <!-- Botão Voltar ao Topo -->
     <button id="back-to-top" class="fixed bottom-6 right-6 p-3 bg-headerBg text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-headerHover hover:scale-110 focus:outline-none z-40 border border-white/20" aria-label="Voltar ao topo">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
         </svg>
     </button>
 
-    <!-- JavaScript para Interatividade -->
+
     <script>
-        // Menu Mobile Toggle
+
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -365,26 +322,24 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Fechar menu mobile ao clicar em um link
+
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
             });
         });
 
-        // Botão Voltar ao Topo & Sombra do Header
         const backToTopBtn = document.getElementById('back-to-top');
         const header = document.getElementById('main-header');
 
         window.addEventListener('scroll', () => {
-            // Sombra do header
+
             if (window.scrollY > 20) {
                 header.classList.add('shadow-lg');
             } else {
                 header.classList.remove('shadow-lg');
             }
 
-            // Exibir/Ocultar botão Voltar ao Topo
             if (window.scrollY > 400) {
                 backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
                 backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
@@ -394,7 +349,6 @@
             }
         });
 
-        // Ação do Botão Voltar ao Topo
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,

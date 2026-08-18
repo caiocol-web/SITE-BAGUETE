@@ -334,3 +334,12 @@ label{
 .botao-fechar:hover{
     background:#3d220b;
 }
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: rgba(44, 33, 24, 0.95);
+    color: #ffffff;
+    margin-top: 3rem;
+    font-size: 0.95rem;
+}
