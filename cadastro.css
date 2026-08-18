@@ -13,7 +13,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background:#4c4ab6;
+    background:#faf5d8;
 }
 
 .container {
@@ -28,7 +28,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(254, 222, 184);
+    background-color: rgb(116, 75, 26);
     padding: 1rem;
 }
 
@@ -60,7 +60,7 @@ body {
     display: block;
     width: 5rem;
     height: 0.3rem;
-    background-color: #6c63ff;
+    background-color: rgb(116, 75, 26);
     margin: 0 auto;
     position: absolute;
     border-radius: 10px;
@@ -93,7 +93,7 @@ margin-bottom: 1.1rem;
 }
 
 .input-box input:focus-visible {
-    outline: 1px solid #6c63ff;
+    outline: 1px solid rgb(116, 75, 26);
 }
 
 .input-box label,
@@ -138,11 +138,11 @@ margin-bottom: 1.1rem;
     padding: 0.6rem;
     border-radius: 8px;
     cursor: pointer;
-    background-color: #6c63ff;
+    background-color:rgb(116, 75, 26);
 }
 
 .continue-button button::hover {
-    background-color: #7d78db;
+    background-color: rgb(116, 75, 26);
 }
 
 .continue-button button a {

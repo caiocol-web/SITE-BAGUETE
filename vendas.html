@@ -1,91 +1,144 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Vendas</title>
-        <link rel="stylesheet" href="vendas.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendas</title>
+    <link rel="stylesheet" href="vendas.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <header class="cabeçalho">
-            <h1 class="sla">Arte em<br>Baguetes</h1>
-        <div class="cabeça">Vendas</div>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
 
-                <nav aria-label="Navegação principal">
-                <a href="index.html" class="btn-logout" aria-label="Sair da conta e ir para o Login">Sair</a>
-                <a href="home.html" title="Página Inicial">Home</a>
-                </nav>
-        </header>
-        <div class="imgfundo"></div>
-            <div class="texto">Nossos Produtos</div>
-    <div class="conteudo">
-            <section class="produtos">
-            
-        <div class="produto">
-            <img src="./imgs/pao1.png" alt="Pão Francês">
-            <h3>Pão Francês</h3>
-            <p>Crocante e fresquinho.</p>
-            <span>R$ 1,20</span>
-            <button onclick="adicionar('Pao Francês',1.20)">Comprar</button>
-        </div>
+<body>
 
-        <div class="produto">
-            <img src="./imgs/pao3.png" alt="Baguete">
-            <h3>Baguete</h3>
-            <p>Tradicional francesa.</p>
-            <span>R$ 12,90</span>
-            <button onclick="adicionar('Baguete',12.90)">Comprar</button>
-        </div>
+<header class="cabeçalho">
+    <h1 class="sla">Arte em<br>Baguetes</h1>
 
-        <div class="produto">
-            <img src="./imgs/pao4.png" alt="Pão Integral">
-            <h3>Pão Integral</h3>
-            <p>Mais saudável.</p>
-            <span>R$ 10,50</span>
-            <button onclick="adicionar('Pao Integral',10.50)">Comprar</button>
-        </div>
+    <div class="cabeça">Vendas</div>
 
-        <div class="produto">
-            <img src="./imgs/pao6.png" alt="Pão Doce">
-            <h3>Pão Doce</h3>
-            <p>Macio e saboroso.</p>
-            <span>R$ 8,90</span>
-            <button onclick="adicionar('Pao doce', 8.90)">Comprar</button>
-        </div>
+    <nav>
+        <a href="index.html" class="btn-logout">Sair</a>
+        <a href="home.html">Home</a>
+    </nav>
+</header>
 
-        <div class="produto">
-            <img src="./imgs/pao2.png" alt="Croissant">
-            <h3>Croissant</h3>
-            <p>Folhado com manteiga.</p>
-            <span>R$ 9,90</span>
-            <button onclick="adicionar('Folhado com manteiga',9.90)">Comprar</button>
-        </div>
+<div class="imgfundo"></div>
 
-        <div class="produto">
-            <img src="./imgs/pao5.png" alt="Sonho">
-            <h3>Sonho</h3>
-            <p>Recheado com creme.</p>
-            <span>R$ 7,90</span>
-            <button onclick="adicionar('Sonho Recheado', 7.90)">Comprar</button>
-        </div>
-    </section>
+<div class="texto">Nossos Produtos</div>
 
-    <div class="carrinho">
-        <h1>Carrinho</h1>
+<div class="conteudo">
 
-        <div id="lista"></div>
+<section class="produtos">
 
-        <button onclick="removerUltimo()">
+    <div class="produto">
+        <img src="./imgs/pao1.png" alt="Pão Francês">
+        <h3>Pão Francês</h3>
+        <p>Crocante e fresquinho.</p>
+        <span>R$ 1,20</span>
+
+        <p>Disponível: <strong id="estoque-paoFrances">0</strong></p>
+
+        <button id="btn-paoFrances"
+            onclick="adicionar('Pao Francês', 1.20, 'paoFrances')">
+            Comprar
+        </button>
+    </div>
+
+
+    <div class="produto">
+        <img src="./imgs/pao3.png" alt="Baguete">
+        <h3>Baguete</h3>
+        <p>Tradicional francesa.</p>
+        <span>R$ 12,90</span>
+
+        <p>Disponível: <strong id="estoque-baguete">0</strong></p>
+
+        <button id="btn-baguete"
+            onclick="adicionar('Baguete', 12.90, 'baguete')">
+            Comprar
+        </button>
+    </div>
+
+
+    <div class="produto">
+        <img src="./imgs/pao4.png" alt="Pão Integral">
+        <h3>Pão Integral</h3>
+        <p>Mais saudável.</p>
+        <span>R$ 10,50</span>
+
+        <p>Disponível: <strong id="estoque-paoIntegral">0</strong></p>
+
+        <button id="btn-paoIntegral"
+            onclick="adicionar('Pao Integral', 10.50, 'paoIntegral')">
+            Comprar
+        </button>
+    </div>
+
+
+    <div class="produto">
+        <img src="./imgs/pao6.png" alt="Pão Doce">
+        <h3>Pão Doce</h3>
+        <p>Macio e saboroso.</p>
+        <span>R$ 8,90</span>
+
+        <p>Disponível: <strong id="estoque-paoDoce">0</strong></p>
+
+        <button id="btn-paoDoce"
+            onclick="adicionar('Pao doce', 8.90, 'paoDoce')">
+            Comprar
+        </button>
+    </div>
+
+
+    <div class="produto">
+        <img src="./imgs/pao2.png" alt="Croissant">
+        <h3>Croissant</h3>
+        <p>Folhado com manteiga.</p>
+        <span>R$ 9,90</span>
+
+        <p>Disponível: <strong id="estoque-croissant">0</strong></p>
+
+        <button id="btn-croissant"
+            onclick="adicionar('Croissant', 9.90, 'croissant')">
+            Comprar
+        </button>
+    </div>
+
+
+    <div class="produto">
+        <img src="./imgs/pao5.png" alt="Sonho">
+        <h3>Sonho</h3>
+        <p>Recheado com creme.</p>
+        <span>R$ 7,90</span>
+
+        <p>Disponível: <strong id="estoque-sonho">0</strong></p>
+
+        <button id="btn-sonho"
+            onclick="adicionar('Sonho Recheado', 7.90, 'sonho')">
+            Comprar
+        </button>
+    </div>
+
+</section>
+
+
+<div class="carrinho">
+
+    <h1>Carrinho</h1>
+
+    <div id="lista"></div>
+
+    <button onclick="removerUltimo()">
         Remover Último Produto
     </button>
 
-        <h3 id="total">R$ 0,00</h3>
+    <h3 id="total">R$ 0,00</h3>
 
-        <button onclick="abrirPagamento()">Finalizar Compra</button>
-    
+    <button onclick="abrirPagamento()">
+        Finalizar Compra
+    </button>
+
 
     <div id="pagamento" style="display:none;">
 
@@ -101,45 +154,55 @@
             Cartão
         </label>
 
-    <div id="pix" style="display:none; margin-top:15px;">
-        <h4>Pagamento via PIX</h4>
 
-         <p>Escaneie o QR Code:</p>
+        <div id="pix" style="display:none; margin-top:15px;">
 
-    <div class="qrcode">
-        <img src="./imgs/qrcode.png" alt="QR Code PIX">
-    </div>
+            <h4>Pagamento via PIX</h4>
+
+            <p>Escaneie o QR Code:</p>
+
+            <div class="qrcode">
+                <img src="./imgs/qrcode.png" alt="QR Code PIX">
+            </div>
+
             <p>Chave PIX:</p>
-            
-        <strong>caio.devens@aluno.senai.br</strong>
-        <button onclick="efetuarPagamento()">
-            Efetuar Pagamento
-        </button>
+
+            <strong>caio.devens@aluno.senai.br</strong>
+
+            <button onclick="efetuarPagamento()">
+                Efetuar Pagamento
+            </button>
+
+        </div>
+
+
+        <div id="cartao" style="display:none; margin-top:15px;">
+
+            <h4>Pagamento com Cartão</h4>
+
+            <input type="text" placeholder="Número do cartão"><br><br>
+
+            <input type="text" placeholder="Nome do titular"><br><br>
+
+            <input type="text" placeholder="Validade"><br><br>
+
+            <input type="password" placeholder="CVV">
+
+            <button onclick="efetuarPagamento()">
+                Efetuar Pagamento
+            </button>
+
+        </div>
+
     </div>
 
-    <div id="cartao" style="display:none; margin-top:15px;">
+</div>
 
-        <h4>Pagamento com Cartão</h4>
+</div>
 
-        <input type="text" placeholder="Número do cartão"><br><br>
 
-        <input type="text" placeholder="Nome do titular"><br><br>
+<div id="notaFiscal">
 
-        <input type="text" placeholder="Validade"><br><br>
-
-        <input type="password" placeholder="CVV">
-
-        <button onclick="efetuarPagamento()">
-            Efetuar Pagamento
-        </button>
-
-    </div>
-
-    </div>
-        
-    </div>
-    <div id="notaFiscal">
-    
     <div class="nota-conteudo">
 
         <button class="fechar-nota" onclick="fecharNota()">✕</button>
@@ -157,7 +220,9 @@
 
         <p id="formaNota"></p>
 
-        <p class="obrigado">Obrigado pela preferência!</p>
+        <p class="obrigado">
+            Obrigado pela preferência!
+        </p>
 
         <button class="botao-fechar" onclick="fecharNota()">
             Fechar
@@ -167,153 +232,319 @@
 
 </div>
 
-    <script>
 
-        let carrinho = [];
-        let total = 0;
+<script>
 
-    function adicionar(nome, preco){
+let carrinho = [];
+let total = 0;
 
-        carrinho.push({
-            nome,
-            preco
-        });
+function pegarEstoque() {
 
-        total += preco;
+    return JSON.parse(
+        localStorage.getItem("estoque")
+    ) || {};
+}
 
-        atualizarCarrinho();
-    }
 
-    function abrirPagamento(){
+function atualizarEstoqueTela() {
 
-        if(carrinho.length == 0){
-            alert("Seu carrinho está vazio.");
-            return;
+    let estoque = pegarEstoque();
+
+    const produtos = [
+        "paoFrances",
+        "croissant",
+        "baguete",
+        "paoIntegral",
+        "sonho",
+        "paoDoce"
+    ];
+
+    produtos.forEach(produto => {
+
+        let quantidade = estoque[produto] || 0;
+
+        let elemento =
+            document.getElementById("estoque-" + produto);
+
+        let botao =
+            document.getElementById("btn-" + produto);
+
+
+        if (elemento) {
+            elemento.textContent = quantidade;
         }
 
-        document.getElementById("pagamento").style.display = "block";
 
-    }
+        if (botao) {
 
-    function atualizarCarrinho(){
+            if (quantidade <= 0) {
 
-        let lista = document.getElementById("lista");
+                botao.disabled = true;
+                botao.textContent = "Sem estoque";
 
+            } else {
 
-        lista.innerHTML = "";
+                botao.disabled = false;
+                botao.textContent = "Comprar";
 
-        carrinho.forEach(produto => {
-            lista.innerHTML += `
-                <p>${produto.nome} - R$ ${produto.preco.toFixed(2)}</p>
-            `;
-        });
+            }
 
-        document.getElementById("total").innerHTML =
-            "R$ " + total.toFixed(2);
-    }
-
-    function removerUltimo(){
-
-        if(carrinho.length == 0){
-            alert("O carrinho está vazio.");
-            return;
         }
-
-        let produto = carrinho.pop();
-
-        total -= produto.preco;
-
-        atualizarCarrinho();
-    }
-
-    const radios = document.querySelectorAll('input[name="pagamento"]');
-
-    radios.forEach(radio => {
-
-        radio.addEventListener("change", function(){
-
-            document.getElementById("pix").style.display = "none";
-            document.getElementById("cartao").style.display = "none";
-
-            if(this.value == "pix"){
-                document.getElementById("pix").style.display = "block";
-            }
-
-            if(this.value == "cartao"){
-                document.getElementById("cartao").style.display = "block";
-            }
-
-        });
 
     });
 
-    function efetuarPagamento(){
+}
 
-    const pagamento = document.querySelector(
-        'input[name="pagamento"]:checked'
+function adicionar(nome, preco, produtoEstoque) {
+
+    let estoque = pegarEstoque();
+
+    let quantidade = estoque[produtoEstoque] || 0;
+
+
+    if (quantidade <= 0) {
+
+        alert("Este produto está sem estoque!");
+        atualizarEstoqueTela();
+        return;
+
+    }
+
+
+    carrinho.push({
+
+        nome: nome,
+        preco: preco,
+        estoque: produtoEstoque
+
+    });
+
+
+    total += preco;
+
+    estoque[produtoEstoque]--;
+
+
+    localStorage.setItem(
+        "estoque",
+        JSON.stringify(estoque)
     );
 
-    if(!pagamento){
-        alert("Escolha uma forma de pagamento.");
-        return;
-    }
 
-    let formaPagamento = "";
+    atualizarCarrinho();
+    atualizarEstoqueTela();
 
-    if(pagamento.value == "pix"){
+}
 
-        formaPagamento = "PIX";
+function atualizarCarrinho() {
 
-        alert("Pedido realizado!\nEfetue o pagamento via PIX.");
+    let lista =
+        document.getElementById("lista");
 
-    }else{
+    lista.innerHTML = "";
 
-        formaPagamento = "Cartão";
-
-        alert("Pagamento com cartão realizado com sucesso!");
-
-    }
-
-
-    // Monta os produtos da nota
-    let itens = "";
 
     carrinho.forEach(produto => {
 
-        itens += `
+        lista.innerHTML += `
             <p>
-                ${produto.nome} - R$ ${produto.preco.toFixed(2)}
+                ${produto.nome} -
+                R$ ${produto.preco.toFixed(2)}
             </p>
         `;
 
     });
 
 
-    document.getElementById("itensNota").innerHTML = itens;
+    document.getElementById("total").innerHTML =
+        "R$ " + total.toFixed(2);
+
+}
+
+function removerUltimo() {
+
+    if (carrinho.length == 0) {
+
+        alert("O carrinho está vazio.");
+        return;
+
+    }
 
 
-    document.getElementById("totalNota").innerHTML =
+    let produto = carrinho.pop();
+
+
+    total -= produto.preco;
+
+    let estoque = pegarEstoque();
+
+    estoque[produto.estoque]++;
+
+
+    localStorage.setItem(
+        "estoque",
+        JSON.stringify(estoque)
+    );
+
+
+    atualizarCarrinho();
+    atualizarEstoqueTela();
+
+}
+
+function abrirPagamento() {
+
+    if (carrinho.length == 0) {
+
+        alert("Seu carrinho está vazio.");
+        return;
+
+    }
+
+
+    document.getElementById(
+        "pagamento"
+    ).style.display = "block";
+
+}
+
+
+const radios =
+    document.querySelectorAll(
+        'input[name="pagamento"]'
+    );
+
+
+radios.forEach(radio => {
+
+    radio.addEventListener(
+        "change",
+        function() {
+
+            document.getElementById(
+                "pix"
+            ).style.display = "none";
+
+            document.getElementById(
+                "cartao"
+            ).style.display = "none";
+
+
+            if (this.value == "pix") {
+
+                document.getElementById(
+                    "pix"
+                ).style.display = "block";
+
+            }
+
+
+            if (this.value == "cartao") {
+
+                document.getElementById(
+                    "cartao"
+                ).style.display = "block";
+
+            }
+
+        }
+    );
+
+});
+
+function efetuarPagamento() {
+
+    const pagamento =
+        document.querySelector(
+            'input[name="pagamento"]:checked'
+        );
+
+
+    if (!pagamento) {
+
+        alert("Escolha uma forma de pagamento.");
+        return;
+
+    }
+
+
+    let formaPagamento = "";
+
+
+    if (pagamento.value == "pix") {
+
+        formaPagamento = "PIX";
+
+        alert(
+            "Pedido realizado!\nEfetue o pagamento via PIX."
+        );
+
+    } else {
+
+        formaPagamento = "Cartão";
+
+        alert(
+            "Pagamento com cartão realizado com sucesso!"
+        );
+
+    }
+
+
+    let itens = "";
+
+
+    carrinho.forEach(produto => {
+
+        itens += `
+            <p>
+                ${produto.nome} -
+                R$ ${produto.preco.toFixed(2)}
+            </p>
+        `;
+
+    });
+
+
+    document.getElementById(
+        "itensNota"
+    ).innerHTML = itens;
+
+
+    document.getElementById(
+        "totalNota"
+    ).innerHTML =
         "TOTAL: R$ " + total.toFixed(2);
 
 
-    document.getElementById("formaNota").innerHTML =
+    document.getElementById(
+        "formaNota"
+    ).innerHTML =
         "Forma de pagamento: " + formaPagamento;
 
 
-    // MOSTRA A NOTA SOMENTE AGORA
-    document.getElementById("notaFiscal").style.display = "flex";
+    document.getElementById(
+        "notaFiscal"
+    ).style.display = "flex";
 
 
-    // Limpa o carrinho
     carrinho = [];
     total = 0;
+
 
     atualizarCarrinho();
 
 
-    document.getElementById("pagamento").style.display = "none";
-    document.getElementById("pix").style.display = "none";
-    document.getElementById("cartao").style.display = "none";
+    document.getElementById(
+        "pagamento"
+    ).style.display = "none";
+
+    document.getElementById(
+        "pix"
+    ).style.display = "none";
+
+    document.getElementById(
+        "cartao"
+    ).style.display = "none";
 
 
     document.querySelectorAll(
@@ -323,56 +554,33 @@
         radio.checked = false;
 
     });
-}
-function fecharNota(){
-
-    document.getElementById("notaFiscal").style.display = "none";
 
 }
 
+function fecharNota() {
 
-function verificarEstoque(produto, quantidade) {
+    document.getElementById(
+        "notaFiscal"
+    ).style.display = "none";
 
-    let estoque = JSON.parse(
-        localStorage.getItem("estoque")
-    ) || {};
+}
 
-    if (estoque[produto] === undefined) {
-        alert("Produto não encontrado no estoque!");
-        return false;
+window.addEventListener(
+    "storage",
+    function(event) {
+
+        if (event.key === "estoque") {
+
+            atualizarEstoqueTela();
+
+        }
+
     }
+);
 
-    if (estoque[produto] < quantidade) {
-        alert(
-            "Estoque insuficiente!\n\n" +
-            "Disponível: " + estoque[produto] +
-            "\nSolicitado: " + quantidade
-        );
+atualizarEstoqueTela();
 
-        return false;
-    }
+</script>
 
-    return true;
-}
-
-function retirarDoEstoque(produto, quantidade) {
-
-    let estoque = JSON.parse(
-        localStorage.getItem("estoque")
-    ) || {};
-
-    estoque[produto] -= quantidade;
-
-    if (estoque[produto] < 0) {
-        estoque[produto] = 0;
-    }
-
-    localStorage.setItem(
-        "estoque",
-        JSON.stringify(estoque)
-    );
-}
-    </script>
-        </div>
-    </body>
-    </html>
+</body>
+</html>

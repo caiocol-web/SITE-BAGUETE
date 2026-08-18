@@ -25,7 +25,7 @@
 
         <nav>
             <a href="home.html">Início</a>
-            <a href="vendas.html">Vendas</a>
+            <a href="index.html">Sair</a>
         </nav>
 
     </header>
@@ -252,16 +252,24 @@
         }
 
 
-        let estoque = JSON.parse(localStorage.getItem("estoque")) || {
+        let estoque = JSON.parse(localStorage.getItem("estoque"));
 
-    paoFrances: 20,
-    croissant: 15,
-    baguete: 10,
-    paoIntegral: 12,
-    sonho: 10,
-    paoDoce: 15
+if (!estoque) {
 
-};
+    estoque = {
+        paoFrances: 20,
+        croissant: 15,
+        baguete: 10,
+        paoIntegral: 12,
+        sonho: 10,
+        paoDoce: 15
+    };
+
+    localStorage.setItem(
+        "estoque",
+        JSON.stringify(estoque)
+    );
+}
 
 function atualizarTela() {
 
