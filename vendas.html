@@ -155,44 +155,82 @@
         </label>
 
 
-        <div id="pix" style="display:none; margin-top:15px;">
+        <div id="pix" style="display: none; margin-top: 15px;">
 
-            <h4>Pagamento via PIX</h4>
+    <h4>Pagamento via PIX</h4>
 
-            <p>Escaneie o QR Code:</p>
+    <p class="pix-instrucao">Escaneie o QR Code abaixo:</p>
 
-            <div class="qrcode">
-                <img src="./imgs/qrcode.png" alt="QR Code PIX">
-            </div>
+    <div class="qrcode">
+        <img src="./imgs/qrcode.png" alt="QR Code PIX">
+    </div>
 
-            <p>Chave PIX:</p>
+    <p class="pix-ou">ou</p>
 
-            <strong>caio.devens@aluno.senai.br</strong>
+    <p class="pix-label">Copie a chave PIX:</p>
 
-            <button onclick="efetuarPagamento()">
-                Efetuar Pagamento
-            </button>
+    <div class="chave-pix">
+        <span id="chavePix">caio.devens@aluno.senai.br</span>
 
-        </div>
+        <button type="button"
+                class="btn-copiar"
+                onclick="copiarPix()">
+            Copiar
+        </button>
+    </div>
+
+    <p id="mensagemPix" class="mensagem-pix"></p>
+
+    <div class="pix-total">
+        <span>Total a pagar</span>
+        <strong id="totalPix">R$ 0,00</strong>
+    </div>
+
+    <button onclick="efetuarPagamento()">
+        Confirmar Pagamento
+    </button>
+
+</div>
 
 
         <div id="cartao" style="display:none; margin-top:15px;">
 
-            <h4>Pagamento com Cartão</h4>
+    <h4>Pagamento com Cartão</h4>
 
-            <input type="text" placeholder="Número do cartão"><br><br>
+    <input 
+        type="text" 
+        id="numeroCartao"
+        placeholder="Número do cartão"
+        required
+    ><br><br>
 
-            <input type="text" placeholder="Nome do titular"><br><br>
+    <input 
+        type="text" 
+        id="nomeTitular"
+        placeholder="Nome do titular"
+        required
+    ><br><br>
 
-            <input type="text" placeholder="Validade"><br><br>
+    <input 
+        type="text" 
+        id="validade"
+        placeholder="Validade"
+        required
+    ><br><br>
 
-            <input type="password" placeholder="CVV">
+    <input 
+        type="password" 
+        id="cvv"
+        placeholder="CVV"
+        required
+    >
 
-            <button onclick="efetuarPagamento()">
-                Efetuar Pagamento
-            </button>
+    <button onclick="efetuarPagamento()">
+        Efetuar Pagamento
+    </button>
 
-        </div>
+</div>
+</div>
 
     </div>
 
@@ -240,9 +278,25 @@ let total = 0;
 
 function pegarEstoque() {
 
-    return JSON.parse(
-        localStorage.getItem("estoque")
-    ) || {};
+    let estoque = JSON.parse(localStorage.getItem("estoque"));
+
+    if (!estoque) {
+        estoque = {
+            paoFrances: 20,
+            croissant: 15,
+            baguete: 10,
+            paoIntegral: 12,
+            sonho: 10,
+            paoDoce: 15
+        };
+
+        localStorage.setItem(
+            "estoque",
+            JSON.stringify(estoque)
+        );
+    }
+
+    return estoque;
 }
 
 
@@ -298,98 +352,97 @@ function atualizarEstoqueTela() {
 function adicionar(nome, preco, produtoEstoque) {
 
     let estoque = pegarEstoque();
-
     let quantidade = estoque[produtoEstoque] || 0;
 
-
     if (quantidade <= 0) {
-
         alert("Este produto está sem estoque!");
         atualizarEstoqueTela();
         return;
-
     }
 
+    let produtoExistente = carrinho.find(
+        produto => produto.estoque === produtoEstoque
+    );
 
-    carrinho.push({
-
-        nome: nome,
-        preco: preco,
-        estoque: produtoEstoque
-
-    });
-
+    if (produtoExistente) {
+        produtoExistente.quantidade++;
+    } else {
+        carrinho.push({
+            nome: nome,
+            preco: preco,
+            estoque: produtoEstoque,
+            quantidade: 1
+        });
+    }
 
     total += preco;
-
     estoque[produtoEstoque]--;
-
 
     localStorage.setItem(
         "estoque",
         JSON.stringify(estoque)
     );
 
-
     atualizarCarrinho();
     atualizarEstoqueTela();
-
 }
 
 function atualizarCarrinho() {
 
-    let lista =
-        document.getElementById("lista");
+    let lista = document.getElementById("lista");
 
     lista.innerHTML = "";
 
-
     carrinho.forEach(produto => {
+
+        let subtotal = produto.preco * produto.quantidade;
 
         lista.innerHTML += `
             <p>
                 ${produto.nome} -
                 R$ ${produto.preco.toFixed(2)}
+                <br>
+                Quantidade: ${produto.quantidade}
+                <br>
+                Subtotal: R$ ${subtotal.toFixed(2)}
             </p>
         `;
 
     });
 
-
     document.getElementById("total").innerHTML =
         "R$ " + total.toFixed(2);
-
 }
 
 function removerUltimo() {
 
     if (carrinho.length == 0) {
-
         alert("O carrinho está vazio.");
         return;
-
     }
 
 
-    let produto = carrinho.pop();
+    let produto = carrinho[carrinho.length - 1];
 
+    produto.quantidade--;
+
+
+    let estoque = pegarEstoque();
+    estoque[produto.estoque]++;
 
     total -= produto.preco;
 
-    let estoque = pegarEstoque();
-
-    estoque[produto.estoque]++;
-
+    if (produto.quantidade <= 0) {
+        carrinho.pop();
+    }
 
     localStorage.setItem(
         "estoque",
         JSON.stringify(estoque)
     );
 
-
     atualizarCarrinho();
     atualizarEstoqueTela();
-
 }
 
 function abrirPagamento() {
@@ -398,14 +451,14 @@ function abrirPagamento() {
 
         alert("Seu carrinho está vazio.");
         return;
-
     }
-
 
     document.getElementById(
         "pagamento"
     ).style.display = "block";
 
+    document.getElementById("totalPix").textContent =
+        "R$ " + total.toFixed(2);
 }
 
 
@@ -473,21 +526,30 @@ function efetuarPagamento() {
 
     if (pagamento.value == "pix") {
 
-        formaPagamento = "PIX";
+    formaPagamento = "PIX";
 
-        alert(
-            "Pedido realizado!\nEfetue o pagamento via PIX."
-        );
+    alert(
+        "Pedido realizado!\nEfetue o pagamento via PIX."
+    );
 
-    } else {
+} else {
 
-        formaPagamento = "Cartão";
+    const numero = document.getElementById("numeroCartao").value.trim();
+    const nome = document.getElementById("nomeTitular").value.trim();
+    const validade = document.getElementById("validade").value.trim();
+    const cvv = document.getElementById("cvv").value.trim();
 
-        alert(
-            "Pagamento com cartão realizado com sucesso!"
-        );
-
+    if (!numero || !nome || !validade || !cvv) {
+        alert("Preencha todos os campos do cartão.");
+        return;
     }
+
+    formaPagamento = "Cartão";
+
+    alert(
+        "Pagamento com cartão realizado com sucesso!"
+    );
+}
 
 
     let itens = "";
@@ -581,6 +643,27 @@ window.addEventListener(
 
 
 atualizarEstoqueTela();
+
+
+function copiarPix() {
+
+    const chave = document.getElementById("chavePix").textContent;
+    const mensagem = document.getElementById("mensagemPix");
+
+    navigator.clipboard.writeText(chave).then(() => {
+
+        mensagem.textContent = "Chave PIX copiada!";
+
+        setTimeout(() => {
+            mensagem.textContent = "";
+        }, 2500);
+
+    }).catch(() => {
+
+        mensagem.textContent = "Não foi possível copiar a chave.";
+
+    });
+}
 
 </script>
 

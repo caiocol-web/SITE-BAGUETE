@@ -12,7 +12,7 @@ body {
     width: 100%;
     height: 80px;
 
-    background: #57320f;
+    background: #85470e;
     color: white;
 
     display: flex;
@@ -45,6 +45,20 @@ body {
 
 }
 
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, text-decoration 0.2s ease;
+}
+
+nav a:hover, 
+nav a[aria-current="page"] {
+    background-color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+}
 
 .sla {
 
@@ -311,4 +325,13 @@ nav a:hover {
 
     }
 
+}
+
+footer {
+
+    text-align: center;
+    padding: 1.5rem;
+    background-color: rgba(44, 33, 24, 0.95);
+    color: #ffffff;
+    font-size: 0.95rem;
 }
